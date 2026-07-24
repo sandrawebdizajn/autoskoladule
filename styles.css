@@ -7,26 +7,81 @@ input::placeholder,textarea::placeholder{color:#9aa7bd}
 ::selection{background:#d5121f;color:#fff}
 img{max-width:100%}
 
+/* ---- focus-visible: jasno vidljiv, ne oslanja se samo na boju ---- */
+a:focus-visible,button:focus-visible,.cta-btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.faq-q:focus-visible{outline:3px solid #ff5a4d;outline-offset:2px;border-radius:6px}
+
 .nav-link{font-family:'Libre Franklin',sans-serif;font-size:15px;padding:8px 2px;white-space:nowrap;color:#41506b;font-weight:500;border-bottom:2px solid transparent;text-decoration:none;transition:color .15s}
 .nav-link:hover{color:#007bb0}
 .nav-link.active{color:#007bb0;font-weight:700;border-bottom:2px solid #d5121f}
 
-button,.cta-btn{transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
-button:hover,.cta-btn:hover{transform:translateY(-2px)}
-button:active,.cta-btn:active{transform:translateY(0)}
+/* ---- sticky header: blago se skuplja i pojačava pri skrolovanju ---- */
+header{transition:padding .25s ease,box-shadow .25s ease,background .25s ease}
+header.scrolled{background:rgba(255,255,255,.97) !important;box-shadow:0 2px 14px rgba(10,28,64,.08);border-bottom-color:#dbe3ee !important}
+header.scrolled>div{padding-top:8px !important;padding-bottom:8px !important}
+header.scrolled img{height:44px !important;transition:height .25s ease}
+header img{transition:height .25s ease}
 
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-@keyframes glowPulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.9;transform:scale(1.08)}}
+/* ---- shiny-cta na glavnim CTA dugmadima (rotirajući border + sweep + glow) ---- */
+@property --sha{syntax:"<angle>";initial-value:0deg;inherits:false}
+@keyframes spinAngle{to{--sha:360deg}}
+a.cta-btn,a[style*="background:#d5121f"],button[type="submit"]{position:relative;overflow:hidden;isolation:isolate}
+a.cta-btn::before,a[style*="background:#d5121f"]::before,button[type="submit"]::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.6px;background:conic-gradient(from var(--sha),transparent 0%,rgba(255,255,255,.9) 11%,#fff 20%,rgba(255,255,255,.9) 29%,transparent 42%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;pointer-events:none;z-index:2;animation:spinAngle 3s linear infinite}
+@media (hover:hover) and (pointer:fine){
+  a.cta-btn:hover::before,a[style*="background:#d5121f"]:hover::before,button[type="submit"]:hover::before{padding:2.2px;animation-duration:1.6s}
+  a[style*="background:#d5121f"]:hover{box-shadow:0 10px 26px rgba(213,18,31,.34),0 0 0 1px rgba(255,255,255,.25)}
+}
 
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.22,.61,.36,1),transform .6s cubic-bezier(.22,.61,.36,1)}
-.reveal.in{opacity:1;transform:none}
+/* ---- shadcn-style hover: blaga promena pozadine/opacity na svim dugmadima ---- */
+a.cta-btn,a[style*="background:#d5121f"],a[style*="background:#16292f"],a[style*="border:1.5px solid rgba(255,255,255"],button[type="submit"],.gbtn{transition:background-color .15s ease,opacity .15s ease,transform .2s ease,box-shadow .2s ease,color .2s ease,border-color .2s ease}
+@media (hover:hover) and (pointer:fine){
+  a.cta-btn:hover,a[style*="background:#d5121f"]:hover,button[type="submit"]:hover{opacity:.9}
+  a[style*="background:#16292f"]:hover{opacity:.85}
+  a[style*="border:1.5px solid rgba(255,255,255"]:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.55)}
+  .gbtn:hover{background:#f3f6fb}
+}
 
-.h-anim{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
-.h-img{transform:scale(1.05)}
-.h-anim.in{opacity:1;transform:none}
-.h-badge{transition-delay:.05s}.h-title{transition-delay:.18s}.h-text{transition-delay:.34s}.h-cta{transition-delay:.5s}.h-img{transition-delay:.28s}.h-float{transition-delay:.7s}
-.h-float.in{animation:floaty 4.5s 1.2s ease-in-out infinite}
-.h-glow{animation:glowPulse 6s ease-in-out infinite}
+/* ---- CTA dugmad: dosledne mikrointerakcije ---- */
+.cta-btn,a[href="upis.html"],a[href^="tel:"]{transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease}
+button{transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease}
+@media (hover:hover) and (pointer:fine){
+  .cta-btn:hover,button.gal-prev:hover,button.gal-next:hover{transform:translateY(-1px)}
+  button[type="submit"]:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(213,18,31,.28)}
+}
+.cta-btn:active,button:active{transform:translateY(0) scale(.98)}
+
+/* ---- kartice: diskretan hover lift (samo uređaji sa pravim hover-om) ---- */
+.card-mi{transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+@media (hover:hover) and (pointer:fine){
+  .card-mi:hover{transform:translateY(-4px);border-color:#007bb0 !important;box-shadow:0 14px 34px rgba(10,28,64,.1)}
+  .card-mi:hover .card-arrow{transform:translateX(3px)}
+  /* kontakt redovi: blagi pomak inline elemenata */
+  .contact-row{transition:transform .2s ease}
+  .contact-row:hover{transform:translateX(3px)}
+}
+.card-arrow{display:inline-block;transition:transform .2s ease}
+
+/* ---- reveal sekcija na skrol (sakriveno samo ako JS radi) ---- */
+.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s cubic-bezier(.22,.61,.36,1),transform .55s cubic-bezier(.22,.61,.36,1)}
+.reveal.in{opacity:1 !important;transform:none !important}
+/* stagger kartica unutar sekcije */
+.js .rise{opacity:0;transform:translateY(18px);transition:opacity .5s cubic-bezier(.22,.61,.36,1),transform .5s cubic-bezier(.22,.61,.36,1)}
+.rise.in{opacity:1 !important;transform:none !important}
+
+/* ---- hero ulazna animacija (samo pri prvom učitavanju) ---- */
+.js .h-anim{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.22,.61,.36,1),transform .6s cubic-bezier(.22,.61,.36,1)}
+.js .h-img{transform:translateX(28px)}
+.h-anim.in{opacity:1 !important;transform:none !important}
+.h-badge{transition-delay:.05s}.h-title{transition-delay:.16s}.h-text{transition-delay:.30s}.h-cta{transition-delay:.44s}.h-img{transition-delay:.24s}.h-float{transition-delay:.6s}
+@media (max-width:768px){.h-img{transform:translateY(16px)}}
+
+/* ---- animirana "trasa" linija (SVG stroke-dashoffset) ---- */
+.route-line{display:block;margin:2px 0 4px;overflow:visible}
+.route-line path{stroke:#ff5a4d;stroke-width:3;fill:none;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1s ease}
+.route-line.in path{stroke-dashoffset:0}
+
+/* ---- "dovoze se" ulaz vozila (JS postavlja stanja; ovde samo tranzicija) ---- */
+.js .drive-in .veh-img{transition:opacity .55s ease,transform .75s cubic-bezier(.22,.61,.36,1)}
+.js .drive-in .veh-cap{transition:opacity .5s ease .18s,transform .5s ease .18s}
 
 .gal-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .5s ease;pointer-events:none}
 .gal-thumb{width:64px;height:48px;border-radius:8px;overflow:hidden;cursor:pointer;flex:none;border:2px solid transparent;opacity:.55;transition:all .2s;padding:0;background:none}
@@ -34,6 +89,23 @@ button:active,.cta-btn:active{transform:translateY(0)}
 .gal-thumb img{width:100%;height:100%;object-fit:cover;display:block}
 
 .ph-slot{width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;background:repeating-linear-gradient(45deg,#eef2f6,#eef2f6 12px,#e7edf2 12px,#e7edf2 24px);color:#7a8aa0;font-size:13.5px;font-weight:600;font-family:'Libre Franklin',sans-serif;line-height:1.4}
+
+/* ---- sticky mobilni CTA ---- */
+.sticky-cta{position:fixed;left:12px;right:12px;bottom:12px;z-index:70;display:none;align-items:center;justify-content:center;gap:10px;background:#d5121f;color:#fff;font-family:'Archivo',sans-serif;font-weight:800;font-size:16px;padding:15px;border-radius:12px;text-decoration:none;box-shadow:0 12px 30px rgba(213,18,31,.35);padding-bottom:calc(15px + env(safe-area-inset-bottom));transform:translateY(160%);transition:transform .3s ease}
+.sticky-cta svg{width:20px;height:20px;flex:none}
+.sticky-cta.show{transform:translateY(0)}
+@media (max-width:768px){.sticky-cta{display:flex}body.sticky-pad{padding-bottom:80px}}
+
+/* ---- testimonials marquee (utisci) ---- */
+#utisci{scroll-margin-top:90px}
+.marquee-wrap{position:relative;overflow:hidden;padding:8px 0 14px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.marquee-track{display:flex;width:max-content;padding-left:24px;animation:marqueeX 48s linear infinite;will-change:transform}
+.marquee-track .tcard:last-child{margin-right:0}
+@media (hover:hover){.marquee-wrap:hover .marquee-track{animation-play-state:paused}}
+@keyframes marqueeX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.gbtn{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid #dbe3ee;color:#0e1a30;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;padding:12px 22px;border-radius:100px;text-decoration:none;box-shadow:0 2px 10px rgba(10,28,64,.05);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.gbtn .gstar{color:#f5a623;font-size:17px;line-height:1}
+@media (hover:hover) and (pointer:fine){.gbtn:hover{border-color:#007bb0;color:#0e1a30;transform:translateY(-1px);box-shadow:0 10px 24px rgba(10,28,64,.1)}}
 
 .dz-hamburger{display:none}
 @media (max-width:1080px){
@@ -47,8 +119,16 @@ button:active,.cta-btn:active{transform:translateY(0)}
   .dz-nav a.nav-link{font-size:16px !important;padding:12px 2px !important;border-bottom:1px solid #f0f3f8 !important}
   .dz-nav .cta-btn{margin-top:10px !important;justify-content:center !important;font-size:16px !important;padding:14px !important}
 }
+
+/* ---- reduced motion: sve odmah vidljivo, bez pokreta ---- */
 @media (prefers-reduced-motion:reduce){
-  .reveal,.h-anim{opacity:1 !important;transform:none !important;transition:none}
-  .h-float.in,.h-glow{animation:none !important}
-  button:hover,.cta-btn:hover{transform:none}
+  *,*::before,*::after{scroll-behavior:auto !important}
+  .reveal,.rise,.h-anim,.drive-in .veh-img,.drive-in .veh-cap{opacity:1 !important;transform:none !important;transition:none !important}
+  .route-line path{stroke-dashoffset:0 !important;transition:none !important}
+  .card-mi:hover,.cta-btn:hover,button:hover{transform:none !important}
+  .sticky-cta{transition:none !important}
+  a.cta-btn::before,a[style*="background:#d5121f"]::before,button[type="submit"]::before{display:none !important}
+  header,header img{transition:none !important}
+  .marquee-track{animation:none !important}
+  .marquee-wrap{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
 }
