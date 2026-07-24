@@ -1,6 +1,6 @@
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-body{overflow-x:hidden}
+body{overflow-x:clip}
 a{color:#007bb0;text-decoration:none}
 a:hover{color:#d5121f}
 input::placeholder,textarea::placeholder{color:#9aa7bd}
@@ -106,6 +106,30 @@ button{transition:transform .2s ease,box-shadow .2s ease,background .2s ease,col
 .gbtn{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid #dbe3ee;color:#0e1a30;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;padding:12px 22px;border-radius:100px;text-decoration:none;box-shadow:0 2px 10px rgba(10,28,64,.05);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
 .gbtn .gstar{color:#f5a623;font-size:17px;line-height:1}
 @media (hover:hover) and (pointer:fine){.gbtn:hover{border-color:#007bb0;color:#0e1a30;transform:translateY(-1px);box-shadow:0 10px 24px rgba(10,28,64,.1)}}
+
+/* ---- footer: hover na social dugmadima + klikabilni kontakti ---- */
+footer a[href*="facebook"],footer a[href*="instagram"],footer a[href*="youtube"]{transition:transform .22s ease,background .22s ease,box-shadow .22s ease}
+@media (hover:hover) and (pointer:fine){
+  footer a[href*="facebook"]:hover,footer a[href*="instagram"]:hover,footer a[href*="youtube"]:hover{transform:translateY(-3px);background:#d5121f !important;box-shadow:0 8px 20px rgba(213,18,31,.35)}
+  footer a[href^="tel:"]:hover,footer a[href^="mailto:"]:hover{color:#fff !important}
+}
+footer a[href^="tel:"],footer a[href^="mailto:"]{transition:color .18s ease}
+
+/* ---- tilt kartice (3D nagib prema mišu) ---- */
+@media (hover:hover) and (pointer:fine){
+  .tilt{transform-style:preserve-3d;will-change:transform}
+  .tilt:hover{border-color:#007bb0 !important;box-shadow:0 18px 40px rgba(10,28,64,.14)}
+}
+
+@media (hover:hover) and (pointer:fine){
+  .pcard{transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+  .pcard:hover{transform:translateY(-4px);border-color:#007bb0;box-shadow:0 14px 34px rgba(10,28,64,.1)}
+}
+
+/* ---- text-rotate (rotiraju\u0107a re\u010d u naslovu) ---- */
+.rotate-word{overflow:hidden}
+.rotate-word .rw-char{display:inline-block;white-space:pre;will-change:transform,opacity}
+@media (prefers-reduced-motion:reduce){.rotate-word .rw-char{transform:none !important;opacity:1 !important;transition:none !important}}
 
 .dz-hamburger{display:none}
 @media (max-width:1080px){

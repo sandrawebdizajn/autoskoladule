@@ -146,6 +146,99 @@
       });
     });
 
+    /* ---------- tilt efekat na karticama (gravitate) ---------- */
+    var canTilt = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if(canTilt && !RM){
+      var tiltEls=[].slice.call(document.querySelectorAll('.drive-in'));
+      tiltEls.forEach(function(el){
+        el.classList.add('tilt');
+        var raf=null;
+        el.addEventListener('mousemove',function(e){
+          if(raf) return;
+          raf=requestAnimationFrame(function(){
+            raf=null;
+            var r=el.getBoundingClientRect();
+            var px=(e.clientX-r.left)/r.width-0.5;
+            var py=(e.clientY-r.top)/r.height-0.5;
+            var rx=(-py*7).toFixed(2), ry=(px*7).toFixed(2);
+            el.style.setProperty('transform','perspective(900px) rotateX('+rx+'deg) rotateY('+ry+'deg) translateY(-4px)','important');
+            el.style.setProperty('transition','transform .12s ease-out, border-color .22s ease, box-shadow .22s ease','important');
+          });
+        });
+        el.addEventListener('mouseleave',function(){
+          el.style.setProperty('transition','transform .45s cubic-bezier(.22,.61,.36,1), border-color .22s ease, box-shadow .22s ease','important');
+          el.style.setProperty('transform','perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0)','important');
+        });
+      });
+    }
+
+    /* ---------- text-rotate: rotiraju\u0107a re\u010d u naslovu ---------- */
+    var rw=document.querySelector('.rotate-word');
+    if(rw){
+      var words=(rw.getAttribute('data-words')||'').split(',').map(function(w){return w.trim();}).filter(Boolean);
+      if(words.length>1 && !RM){
+        // rezervi\u0161i \u0161irinu najdu\u017ee re\u010di da se layout ne pomera
+        var probe=document.createElement('span');
+        probe.style.cssText='position:absolute;visibility:hidden;white-space:pre;font:inherit;letter-spacing:inherit';
+        rw.appendChild(probe);
+        var maxW=0;
+        words.forEach(function(w){ probe.textContent=w; maxW=Math.max(maxW, probe.offsetWidth); });
+        probe.remove();
+        if(maxW) rw.style.minWidth=Math.ceil(maxW)+'px';
+
+        var wi=0, busy=false;
+        function paint(word, dir, cb){
+          rw.textContent='';
+          var chars=word.split('');
+          chars.forEach(function(ch,i){
+            var sp=document.createElement('span');
+            sp.className='rw-char';
+            sp.textContent=ch;
+            sp.style.transform='translateY('+(dir>0?'105%':'-105%')+')';
+            sp.style.opacity='0';
+            rw.appendChild(sp);
+            requestAnimationFrame(function(){
+              setTimeout(function(){
+                sp.style.transition='transform .5s cubic-bezier(.22,.61,.36,1),opacity .35s ease';
+                sp.style.transform='translateY(0)';
+                sp.style.opacity='1';
+                if(i===chars.length-1 && cb) setTimeout(cb, 520);
+              }, i*26);
+            });
+          });
+        }
+        function exit(cb){
+          var chars=[].slice.call(rw.querySelectorAll('.rw-char'));
+          if(!chars.length){ cb(); return; }
+          chars.forEach(function(sp,i){
+            setTimeout(function(){
+              sp.style.transition='transform .4s cubic-bezier(.55,.06,.68,.19),opacity .3s ease';
+              sp.style.transform='translateY(-105%)';
+              sp.style.opacity='0';
+            }, i*20);
+          });
+          setTimeout(cb, chars.length*20+420);
+        }
+        // inicijalno: razlo\u017ei postoje\u0107u re\u010d na slova bez animacije
+        (function initial(){
+          var w=rw.textContent.trim();
+          rw.textContent='';
+          w.split('').forEach(function(ch){
+            var sp=document.createElement('span');
+            sp.className='rw-char'; sp.textContent=ch;
+            rw.appendChild(sp);
+          });
+        })();
+        setInterval(function(){
+          if(busy) return; busy=true;
+          exit(function(){
+            wi=(wi+1)%words.length;
+            paint(words[wi], 1, function(){ busy=false; });
+          });
+        }, 3200);
+      }
+    }
+
     /* ---------- sticky mobilni CTA ---------- */
     var cta=document.createElement('a');
     cta.className='sticky-cta';
