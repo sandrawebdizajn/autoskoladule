@@ -79,13 +79,26 @@
       observe(c);
     });
 
-    /* safety net: ako observer iz bilo kog razloga ne okine, sadržaj se ipak prikaže */
-    setTimeout(function(){
-      [].slice.call(document.querySelectorAll('.reveal:not(.in),.rise:not(.in),.drive-in:not(.in)')).forEach(function(el){
+    /* safety net: observer ume da promaši pri brzom/programskom skrolu.
+       rAF-throttled sweep otkriva sve što je ušlo u viewport ili je već prošlo. */
+    var sweeping=false;
+    function sweep(){
+      sweeping=false;
+      var vh=window.innerHeight;
+      var pending=document.querySelectorAll('.reveal:not(.in),.rise:not(.in),.drive-in:not(.in)');
+      if(!pending.length){ window.removeEventListener('scroll',queueSweep); return; }
+      [].forEach.call(pending,function(el){
         var r=el.getBoundingClientRect();
-        if(r.top < window.innerHeight){ el.style.transition='none'; el.classList.add('in'); }
+        if(r.top < vh){
+          if(r.bottom < 0){ el.style.transition='none'; } // već prošlo: bez animacije
+          revealEl(el);
+        }
       });
-    }, 2600);
+    }
+    function queueSweep(){ if(!sweeping){ sweeping=true; requestAnimationFrame(sweep); } }
+    window.addEventListener('scroll',queueSweep,{passive:true});
+    window.addEventListener('resize',queueSweep,{passive:true});
+    setTimeout(sweep, 400);
 
     /* strelice u karticama -> pomeranje na hover (klasa) */
     [].slice.call(document.querySelectorAll('.card-mi')).forEach(function(c){
