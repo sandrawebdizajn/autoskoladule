@@ -25,7 +25,7 @@
         <a href="tim.html" class="nav-link">Naš tim</a>
         <a href="galerija.html" class="nav-link">Galerija</a>
         <a href="index.html#utisci" class="nav-link">Utisci</a><a href="kontakt.html" class="nav-link">Kontakt</a>
-        <a href="upis.html" class="cta-btn" style="display:inline-flex;align-items:center;gap:8px;background:#d5121f;color:#fff;font-family:'Archivo',sans-serif;font-weight:800;font-size:14px;padding:11px 20px;border-radius:8px;text-decoration:none;box-shadow:0 6px 18px rgba(213,18,31,.28)">Online upis →</a>
+        <a href="tel:+381606037037" class="cta-btn" style="display:inline-flex;align-items:center;gap:8px;background:#d5121f;color:#fff;font-family:'Archivo',sans-serif;font-weight:800;font-size:14px;padding:11px 13px;border-radius:8px;text-decoration:none;box-shadow:0 6px 18px rgba(213,18,31,.28)" aria-label="Pozovi auto-školu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px;display:block" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
       </nav>
     </div>
   </header>
@@ -37,31 +37,288 @@
           <p style="font-size:18px;color:#cdd8ec;max-width:640px;margin:0;line-height:1.6">Izaberi kategoriju koja ti treba. Teorijsku nastavu možeš pratiti i online, a praktičnu obuku prilagođavamo tvom rasporedu.</p>
         </div>
       </section>
-      <section style="max-width:1200px;margin:0 auto;padding:clamp(48px,6vw,80px) 24px;display:flex;flex-direction:column;gap:56px">
+      <section style="max-width:1200px;margin:0 auto;padding:clamp(40px,5vw,64px) 24px clamp(20px,3vw,30px)">
+        <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 12px">Izaberi kategoriju</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><a href="#a" class="cat-chip" data-cat="a" style="font-family:'Archivo',sans-serif;font-weight:800;font-size:14px;color:#12262d;background:#fff;border:1px solid #dbe3ee;border-radius:9px;padding:9px 15px;text-decoration:none">A</a><a href="#a1" class="cat-chip" data-cat="a1" style="font-family:'Archivo',sans-serif;font-weight:800;font-size:14px;color:#12262d;background:#fff;border:1px solid #dbe3ee;border-radius:9px;padding:9px 15px;text-decoration:none">A1</a><a href="#a2" class="cat-chip" data-cat="a2" style="font-family:'Archivo',sans-serif;font-weight:800;font-size:14px;color:#12262d;background:#fff;border:1px solid #dbe3ee;border-radius:9px;padding:9px 15px;text-decoration:none">A2</a><a href="#am" class="cat-chip" data-cat="am" style="font-family:'Archivo',sans-serif;font-weight:800;font-size:14px;color:#12262d;background:#fff;border:1px solid #dbe3ee;border-radius:9px;padding:9px 15px;text-decoration:none">AM</a><a href="#b" class="cat-chip" data-cat="b" style="font-family:'Archivo',sans-serif;font-weight:800;font-size:14px;color:#12262d;background:#fff;border:1px solid #dbe3ee;border-radius:9px;padding:9px 15px;text-decoration:none">B</a><a href="#be" class="cat-chip" data-cat="be" style="font-family:'Archivo',sans-serif;font-weight:800;font-size:14px;color:#12262d;background:#fff;border:1px solid #dbe3ee;border-radius:9px;padding:9px 15px;text-decoration:none">BE</a><a href="#c" class="cat-chip" data-cat="c" style="font-family:'Archivo',sans-serif;font-weight:800;font-size:14px;color:#12262d;background:#fff;border:1px solid #dbe3ee;border-radius:9px;padding:9px 15px;text-decoration:none">C</a><a href="#ce" class="cat-chip" data-cat="ce" style="font-family:'Archivo',sans-serif;font-weight:800;font-size:14px;color:#12262d;background:#fff;border:1px solid #dbe3ee;border-radius:9px;padding:9px 15px;text-decoration:none">CE</a></div>
+        <p class="cat-hint" style="font-size:15px;color:#7a8aa0;margin:20px 0 0;line-height:1.6">Klikni na kategoriju iznad da vidiš uslove za polaganje i trajanje obuke.</p>
+      </section>
+      <section style="max-width:1200px;margin:0 auto;padding:0 24px clamp(48px,6vw,80px);display:flex;flex-direction:column;gap:48px">
         <div>
-          <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(24px,3vw,32px);letter-spacing:-.02em;margin:0 0 24px;padding-bottom:14px;border-bottom:2px solid #e6ebf3">A, Motocikli</h2>
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px">
-            <div style="border:1px solid #e6ebf3;border-radius:16px;padding:28px;background:#fff;display:flex;gap:20px;align-items:flex-start"><div style="width:60px;height:60px;flex:none;border-radius:13px;background:#12262d;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:24px;color:#ff5a4d">A</div><div><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;margin:0 0 8px">A kategorija</h3><p style="font-size:14.5px;color:#5a6a85;line-height:1.6;margin:0">Motocikli i teški tricikli snage motora veće od 15 kW. Za neograničenu snagu potrebno je iskustvo ili navršene godine u skladu sa zakonom.</p></div></div>
-            <div style="border:1px solid #e6ebf3;border-radius:16px;padding:28px;background:#fff;display:flex;gap:20px;align-items:flex-start"><div style="width:60px;height:60px;flex:none;border-radius:13px;background:#12262d;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:24px;color:#ff5a4d">A1</div><div><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;margin:0 0 8px">A1 kategorija</h3><p style="font-size:14.5px;color:#5a6a85;line-height:1.6;margin:0">Laki motocikli do 125 cm³ i snage do 11 kW. Obuka moguća od 16 godina.</p></div></div>
-            <div style="border:1px solid #e6ebf3;border-radius:16px;padding:28px;background:#fff;display:flex;gap:20px;align-items:flex-start"><div style="width:60px;height:60px;flex:none;border-radius:13px;background:#12262d;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:24px;color:#ff5a4d">A2</div><div><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;margin:0 0 8px">A2 kategorija</h3><p style="font-size:14.5px;color:#5a6a85;line-height:1.6;margin:0">Motocikli snage motora do 35 kW. Obuka od 18 godina.</p></div></div>
-            <div style="border:1px solid #e6ebf3;border-radius:16px;padding:28px;background:#fff;display:flex;gap:20px;align-items:flex-start"><div style="width:60px;height:60px;flex:none;border-radius:13px;background:#12262d;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:24px;color:#ff5a4d">AM</div><div><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;margin:0 0 8px">AM kategorija</h3><p style="font-size:14.5px;color:#5a6a85;line-height:1.6;margin:0">Mopedi, laki tricikli i laki četvorocikli. Najranija kategorija, od 15 godina.</p></div></div>
+          <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(24px,3vw,32px);letter-spacing:-.02em;margin:0 0 24px;padding-bottom:14px;border-bottom:2px solid #e6ebf3">Motocikli, A / A1 / A2 / AM</h2>
+          <div style="display:flex;flex-direction:column;gap:22px">
+            <div id="a" class="cat-card" style="border:1px solid #e6ebf3;border-radius:18px;overflow:hidden;background:#fff;scroll-margin-top:96px">
+              <div style="background:#12262d;padding:20px 24px;display:flex;align-items:center;gap:16px">
+                <div style="width:56px;height:56px;flex:none;border-radius:13px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;color:#ff5a4d">A</div>
+                <div><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;margin:0;color:#fff">A kategorija</h3><div style="font-size:13.5px;color:#9fb0c4;margin-top:3px">Motocikli i teški tricikli preko 15 kW</div></div>
+              </div>
+              <div style="padding:24px">
+                <div class="cat-top" style="display:grid;grid-template-columns:1.5fr 1fr;gap:26px;align-items:start;margin-bottom:26px">
+                  <div>
+                    <p style="font-size:15px;color:#41506b;line-height:1.65;margin:0;margin-bottom:14px">Sa položenom A kategorijom možete upravljati <strong>motociklima i teškim triciklima</strong> čija je snaga motora veća od 15 kW.</p>
+                    
+                    <div style="border-left:3px solid #d5121f;background:#f7f9fc;border-radius:0 10px 10px 0;padding:13px 16px;font-size:13.5px;color:#41506b;line-height:1.6">Obuka se obavlja <strong>isključivo na vozilu auto škole</strong>, sa motorom od najmanje 600 cm³ i snage najmanje 40 kW. Novi pravilnik ne dozvoljava obuku na sopstvenom motoru.<br><br>Iz voznog parka: <strong>Suzuki Burgman 650</strong>. Obezbeđujemo kacigu svih veličina i bluetooth vezu.</div>
+                  </div>
+                  <div style="background:#f7f9fc;border:1px solid #e6ebf3;border-radius:13px;padding:18px 20px">
+                    <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Uslovi za polaganje</div>
+                    <ul style="margin:0;padding-left:18px;font-size:14.5px;color:#5a6a85;line-height:1.7;font-size:14px"><li>Upis sa 23 godine, praktični ispit sa navršene 24 godine.</li><li>Polaganje je moguće i pre 24. godine ukoliko kandidat poseduje A2 kategoriju najmanje 2 godine.</li></ul>
+                  </div>
+                </div>
+                <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Trajanje obuke</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px">
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Ne poseduje vozačku dozvolu</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>40 časova teorijske nastave</li><li>polaganje testa</li><li>40 časova praktične obuke</li><li>polaganje vožnje</li></ul>
+                </div>
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Poseduje B (a ne poseduje AM)</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>7 časova teorijske nastave</li><li>polaganje testa</li><li>40 časova praktične obuke</li><li>polaganje vožnje</li></ul>
+                </div>
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Poseduje AM kategoriju</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>polaganje testa</li><li>20 časova praktične obuke</li><li>polaganje vožnje</li></ul>
+                </div>
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Poseduje A1 kategoriju</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>polaganje testa</li><li>14 časova praktične obuke</li><li>polaganje vožnje</li></ul>
+                </div>
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Poseduje A2 kategoriju</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>polaganje testa</li><li>7 časova praktične obuke</li><li>polaganje vožnje</li></ul>
+                </div>
+                </div>
+                
+              </div>
+            </div>
+            <div id="a1" class="cat-card" style="border:1px solid #e6ebf3;border-radius:18px;overflow:hidden;background:#fff;scroll-margin-top:96px">
+              <div style="background:#12262d;padding:20px 24px;display:flex;align-items:center;gap:16px">
+                <div style="width:56px;height:56px;flex:none;border-radius:13px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;color:#ff5a4d">A1</div>
+                <div><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;margin:0;color:#fff">A1 kategorija</h3><div style="font-size:13.5px;color:#9fb0c4;margin-top:3px">Motocikli do 125 cm³ i snage do 11 kW</div></div>
+              </div>
+              <div style="padding:24px">
+                <div class="cat-top" style="display:grid;grid-template-columns:1.5fr 1fr;gap:26px;align-items:start;margin-bottom:26px">
+                  <div>
+                    <p style="font-size:15px;color:#41506b;line-height:1.65;margin:0;margin-bottom:14px">A1 kategorija vam omogućava da vozite <strong>motocikle radne zapremine motora do 125 cm³</strong> i snage motora <strong>do 11 kW</strong>.</p>
+                    
+                    <div style="border-left:3px solid #d5121f;background:#f7f9fc;border-radius:0 10px 10px 0;padding:13px 16px;font-size:13.5px;color:#41506b;line-height:1.6">Obuka se mora vršiti na motociklu A1 kategorije, sa motorom radne zapremine od najmanje 120 cm³ i najveće konstruktivne brzine od <span style="white-space:nowrap">90 km/h</span>.<br><br>Iz voznog parka: <strong>Xinyuan 125 ccm</strong>. Obezbeđujemo kacigu svih veličina, potkapu i bluetooth vezu.</div>
+                  </div>
+                  <div style="background:#f7f9fc;border:1px solid #e6ebf3;border-radius:13px;padding:18px 20px">
+                    <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Uslovi za polaganje</div>
+                    <ul style="margin:0;padding-left:18px;font-size:14.5px;color:#5a6a85;line-height:1.7;font-size:14px"><li>Upis sa 15 godina, praktični ispit sa navršene 16 godine.</li><li>Lična karta je obavezna i kandidat je nosi tokom celokupne obuke.</li></ul>
+                  </div>
+                </div>
+                <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Trajanje obuke</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px">
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Ne poseduje vozačku dozvolu</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>40 časova teorijske nastave</li><li>polaganje testa</li><li>20 časova praktične obuke</li><li>polaganje vožnje</li></ul>
+                </div>
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Poseduje B (a ne poseduje AM)</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>7 časova teorijske nastave</li><li>polaganje testa</li><li>20 časova praktične obuke</li><li>polaganje vožnje</li></ul>
+                </div>
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Poseduje AM kategoriju</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>polaganje testa</li><li>7 časova praktične obuke</li><li>polaganje vožnje</li></ul>
+                </div>
+                </div>
+                
+              </div>
+            </div>
+            <div id="a2" class="cat-card" style="border:1px solid #e6ebf3;border-radius:18px;overflow:hidden;background:#fff;scroll-margin-top:96px">
+              <div style="background:#12262d;padding:20px 24px;display:flex;align-items:center;gap:16px">
+                <div style="width:56px;height:56px;flex:none;border-radius:13px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;color:#ff5a4d">A2</div>
+                <div><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;margin:0;color:#fff">A2 kategorija</h3><div style="font-size:13.5px;color:#9fb0c4;margin-top:3px">Motocikli snage do 35 kW</div></div>
+              </div>
+              <div style="padding:24px">
+                <div class="cat-top" style="display:grid;grid-template-columns:1.5fr 1fr;gap:26px;align-items:start;margin-bottom:26px">
+                  <div>
+                    <p style="font-size:15px;color:#41506b;line-height:1.65;margin:0;margin-bottom:14px">A2 kategorija vam omogućava da vozite <strong>motocikle čija snaga nije veća od 35 kW</strong>. Možete voziti i motore preko 600 cm³ ukoliko im snaga ne prelazi 35 kW.</p>
+                    
+                    <div style="border-left:3px solid #d5121f;background:#f7f9fc;border-radius:0 10px 10px 0;padding:13px 16px;font-size:13.5px;color:#41506b;line-height:1.6">Vozila za obuku moraju imati motor od najmanje 400 cm³ i snage od najmanje 25 kW. Obuka na sopstvenom motoru nije moguća.<br><br>Iz voznog parka: <strong>Piaggio Beverly 500</strong>, automatski menjač. Obezbeđujemo kacigu svih veličina i bluetooth vezu.</div>
+                  </div>
+                  <div style="background:#f7f9fc;border:1px solid #e6ebf3;border-radius:13px;padding:18px 20px">
+                    <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Uslovi za polaganje</div>
+                    <ul style="margin:0;padding-left:18px;font-size:14.5px;color:#5a6a85;line-height:1.7;font-size:14px"><li>Upis sa 17 godina, praktični ispit sa navršene 18 godine.</li><li>Lična karta je obavezna i kandidat je nosi tokom celokupne obuke.</li></ul>
+                  </div>
+                </div>
+                <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Trajanje obuke</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px">
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Ne poseduje vozačku dozvolu</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>40 časova teorijske nastave</li><li>polaganje testa</li><li>30 časova praktične obuke</li><li>polaganje vožnje</li></ul>
+                </div>
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Poseduje B (a ne poseduje AM)</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>7 časova teorijske nastave</li><li>polaganje testa</li><li>30 časova praktične obuke</li><li>polaganje vožnje</li></ul>
+                </div>
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Poseduje AM kategoriju</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>polaganje testa</li><li>14 časova praktične obuke</li><li>polaganje vožnje</li></ul>
+                </div>
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Poseduje A1 kategoriju</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>polaganje testa</li><li>7 časova praktične obuke</li><li>polaganje vožnje</li></ul>
+                </div>
+                </div>
+                
+              </div>
+            </div>
+            <div id="am" class="cat-card" style="border:1px solid #e6ebf3;border-radius:18px;overflow:hidden;background:#fff;scroll-margin-top:96px">
+              <div style="background:#12262d;padding:20px 24px;display:flex;align-items:center;gap:16px">
+                <div style="width:56px;height:56px;flex:none;border-radius:13px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;color:#ff5a4d">AM</div>
+                <div><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;margin:0;color:#fff">AM kategorija</h3><div style="font-size:13.5px;color:#9fb0c4;margin-top:3px">Mopedi do 49 cm³</div></div>
+              </div>
+              <div style="padding:24px">
+                <div class="cat-top" style="display:grid;grid-template-columns:1.5fr 1fr;gap:26px;align-items:start;margin-bottom:26px">
+                  <div>
+                    <p style="font-size:15px;color:#41506b;line-height:1.65;margin:0;margin-bottom:14px">Obuka za AM kategoriju u Auto školi Dule se vrši na <strong>mopedu jačine do 49 cm³</strong>.</p>
+                    
+                    <div style="border-left:3px solid #d5121f;background:#f7f9fc;border-radius:0 10px 10px 0;padding:13px 16px;font-size:13.5px;color:#41506b;line-height:1.6">Iz voznog parka: <strong>Yiying Benzhou 50 ccm</strong>. Obezbeđujemo kacigu svih veličina i bluetooth vezu.</div>
+                  </div>
+                  <div style="background:#f7f9fc;border:1px solid #e6ebf3;border-radius:13px;padding:18px 20px">
+                    <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Uslovi za polaganje</div>
+                    <ul style="margin:0;padding-left:18px;font-size:14.5px;color:#5a6a85;line-height:1.7;font-size:14px"><li>Upis sa 15 godina, praktični ispit sa navršene 16 godine.</li><li>Lična karta je obavezna i kandidat je nosi tokom celokupne obuke.</li></ul>
+                  </div>
+                </div>
+                <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Trajanje obuke</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px">
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Ne poseduje vozačku dozvolu</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>40 časova teorijske nastave</li><li>polaganje testa</li><li>7 časova praktične obuke</li><li>polaganje vožnje</li></ul>
+                </div>
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Poseduje B (a ne poseduje AM)</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>7 časova teorijske nastave</li><li>polaganje testa</li><li>7 časova praktične obuke</li><li>polaganje vožnje</li></ul>
+                </div>
+                </div>
+                
+              </div>
+            </div>
           </div>
         </div>
         <div>
-          <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(24px,3vw,32px);letter-spacing:-.02em;margin:0 0 24px;padding-bottom:14px;border-bottom:2px solid #e6ebf3">B, Putnička vozila</h2>
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px">
-            <div style="border:1px solid #e6ebf3;border-radius:16px;padding:28px;background:#fff;display:flex;gap:20px;align-items:flex-start"><div style="width:60px;height:60px;flex:none;border-radius:13px;background:#12262d;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:24px;color:#ff5a4d">B</div><div><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;margin:0 0 8px">B kategorija</h3><p style="font-size:14.5px;color:#5a6a85;line-height:1.6;margin:0">Putnički automobili do 3.500 kg i najviše 8 mesta za sedenje. Moderna vozila za praktičnu obuku i polaganje.</p></div></div>
-            <div style="border:1px solid #e6ebf3;border-radius:16px;padding:28px;background:#fff;display:flex;gap:20px;align-items:flex-start"><div style="width:60px;height:60px;flex:none;border-radius:13px;background:#12262d;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:24px;color:#ff5a4d">BE</div><div><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;margin:0 0 8px">BE kategorija</h3><p style="font-size:14.5px;color:#5a6a85;line-height:1.6;margin:0">Vozilo B kategorije sa priključnim vozilom (prikolicom) veće mase.</p></div></div>
+          <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(24px,3vw,32px);letter-spacing:-.02em;margin:0 0 24px;padding-bottom:14px;border-bottom:2px solid #e6ebf3">Putnička vozila - B</h2>
+          <div style="display:flex;flex-direction:column;gap:22px">
+            <div id="b" class="cat-card" style="border:1px solid #e6ebf3;border-radius:18px;overflow:hidden;background:#fff;scroll-margin-top:96px">
+              <div style="background:#12262d;padding:20px 24px;display:flex;align-items:center;gap:16px">
+                <div style="width:56px;height:56px;flex:none;border-radius:13px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;color:#ff5a4d">B</div>
+                <div><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;margin:0;color:#fff">B kategorija</h3><div style="font-size:13.5px;color:#9fb0c4;margin-top:3px">Putnička vozila do 3.500 kg</div></div>
+              </div>
+              <div style="padding:24px">
+                <div class="cat-top" style="display:grid;grid-template-columns:1.5fr 1fr;gap:26px;align-items:start;margin-bottom:26px">
+                  <div>
+                    <p style="font-size:15px;color:#41506b;line-height:1.65;margin:0">Auto škola Dule obezbeđuje svojim kandidatima <strong>moderna putnička vozila</strong> za praktičnu obuku i polaganje.</p>
+                    
+                    
+                  </div>
+                  <div style="background:#f7f9fc;border:1px solid #e6ebf3;border-radius:13px;padding:18px 20px">
+                    <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Uslovi za polaganje</div>
+                    <ul style="margin:0;padding-left:18px;font-size:14.5px;color:#5a6a85;line-height:1.7;font-size:14px"><li>Upis sa 16 godina, praktični ispit sa navršene 17 godine.</li><li>Lična karta je obavezna i kandidat je nosi tokom celokupne obuke.</li></ul>
+                  </div>
+                </div>
+                <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Trajanje obuke</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px">
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Trajanje obuke za B kategoriju</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>40 časova teorijske nastave</li><li>polaganje testa</li><li>40 časova praktične obuke</li><li>polaganje vožnje</li></ul>
+                </div>
+                </div>
+                                <div style="margin-top:24px;border-top:1px solid #eef1f7;padding-top:22px">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Probna vozačka dozvola</div>
+                  <p style="font-size:14.5px;color:#41506b;line-height:1.65;margin:0 0 12px">Važi do navršene 21 godine, a ako kandidat položi nakon 19. godine, dobija se u trajanju od 2 godine. Ograničenja:</p>
+                  <ul style="margin:0;padding-left:18px;font-size:14.5px;color:#5a6a85;line-height:1.7;font-size:14px;columns:2;column-gap:32px"><li style="break-inside:avoid;margin-bottom:4px">zabrana upravljanja vozilom u periodu 23:00 – 06:00</li><li style="break-inside:avoid;margin-bottom:4px">zabrana upotrebe telefona i drugih sredstava za komunikaciju</li><li style="break-inside:avoid;margin-bottom:4px">zabrana upravljanja pod dejstvom alkohola</li><li style="break-inside:avoid;margin-bottom:4px">najveća brzina na auto-putu do <span style="white-space:nowrap">110 km/h</span></li><li style="break-inside:avoid;margin-bottom:4px">najveća brzina na regionalnom putu do <span style="white-space:nowrap">90 km/h</span></li><li style="break-inside:avoid;margin-bottom:4px">na ostalim putevima najviše 90% od dozvoljene brzine na tom delu puta</li><li style="break-inside:avoid;margin-bottom:4px">sa 17 godina ne sme se upravljati vozilom snage preko 80 kW bez nadzora lica sa važećom dozvolom u trajanju od najmanje 5 godina</li><li style="break-inside:avoid;margin-bottom:4px">sa probnom dozvolom nije moguće upisati druge kategorije</li></ul>
+                </div>
+              </div>
+            </div>
+            <div id="be" class="cat-card" style="border:1px solid #e6ebf3;border-radius:18px;overflow:hidden;background:#fff;scroll-margin-top:96px">
+              <div style="background:#12262d;padding:20px 24px;display:flex;align-items:center;gap:16px">
+                <div style="width:56px;height:56px;flex:none;border-radius:13px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;color:#ff5a4d">BE</div>
+                <div><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;margin:0;color:#fff">BE kategorija</h3><div style="font-size:13.5px;color:#9fb0c4;margin-top:3px">Vozilo B kategorije sa prikolicom</div></div>
+              </div>
+              <div style="padding:24px">
+                <div class="cat-top" style="display:grid;grid-template-columns:1.5fr 1fr;gap:26px;align-items:start;margin-bottom:26px">
+                  <div>
+                    <p style="font-size:15px;color:#41506b;line-height:1.65;margin:0">Skup vozila čije vučno vozilo pripada kategoriji B, a priključno vozilo ima najveću dozvoljenu masu <strong>veću od 750 kg, a ne veću od 3.500 kg</strong>.</p>
+                    
+                    
+                  </div>
+                  <div style="background:#f7f9fc;border:1px solid #e6ebf3;border-radius:13px;padding:18px 20px">
+                    <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Uslovi za polaganje</div>
+                    <ul style="margin:0;padding-left:18px;font-size:14.5px;color:#5a6a85;line-height:1.7;font-size:14px"><li>Lična karta</li><li>Lekarsko uverenje</li><li>Najmanje 21 godina života</li><li>Vozačka dozvola B kategorije</li></ul>
+                  </div>
+                </div>
+                <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Trajanje obuke</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px">
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Trajanje obuke za BE kategoriju</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>7 časova praktične obuke</li><li>polaganje praktičnog ispita</li></ul>
+                </div>
+                </div>
+                
+              </div>
+            </div>
           </div>
         </div>
         <div>
-          <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(24px,3vw,32px);letter-spacing:-.02em;margin:0 0 24px;padding-bottom:14px;border-bottom:2px solid #e6ebf3">C, Teretna vozila</h2>
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px">
-            <div style="border:1px solid #e6ebf3;border-radius:16px;padding:28px;background:#fff;display:flex;gap:20px;align-items:flex-start"><div style="width:60px;height:60px;flex:none;border-radius:13px;background:#12262d;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:24px;color:#ff5a4d">C</div><div><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;margin:0 0 8px">C kategorija</h3><p style="font-size:14.5px;color:#5a6a85;line-height:1.6;margin:0">Teretna vozila najveće dozvoljene mase preko 3.500 kg. Upis sa 20 godina, praktični ispit sa navršenom 21 godinom.</p></div></div>
-            <div style="border:1px solid #e6ebf3;border-radius:16px;padding:28px;background:#fff;display:flex;gap:20px;align-items:flex-start"><div style="width:60px;height:60px;flex:none;border-radius:13px;background:#12262d;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:24px;color:#ff5a4d">CE</div><div><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;margin:0 0 8px">CE kategorija</h3><p style="font-size:14.5px;color:#5a6a85;line-height:1.6;margin:0">Teretno vozilo C kategorije sa priključnim vozilom (prikolicom).</p></div></div>
+          <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(24px,3vw,32px);letter-spacing:-.02em;margin:0 0 24px;padding-bottom:14px;border-bottom:2px solid #e6ebf3">Teretna vozila, C / CE</h2>
+          <div style="display:flex;flex-direction:column;gap:22px">
+            <div id="c" class="cat-card" style="border:1px solid #e6ebf3;border-radius:18px;overflow:hidden;background:#fff;scroll-margin-top:96px">
+              <div style="background:#12262d;padding:20px 24px;display:flex;align-items:center;gap:16px">
+                <div style="width:56px;height:56px;flex:none;border-radius:13px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;color:#ff5a4d">C</div>
+                <div><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;margin:0;color:#fff">C kategorija</h3><div style="font-size:13.5px;color:#9fb0c4;margin-top:3px">Teretna vozila preko 3.500 kg</div></div>
+              </div>
+              <div style="padding:24px">
+                <div class="cat-top" style="display:grid;grid-template-columns:1.5fr 1fr;gap:26px;align-items:start;margin-bottom:26px">
+                  <div>
+                    
+                    <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Vozila u ovoj kategoriji</div><ul style="margin:0;padding-left:18px;font-size:14.5px;color:#5a6a85;line-height:1.7;columns:2;column-gap:26px"><li style="break-inside:avoid">najveća dozvoljena masa prelazi 12.000 kg</li><li style="break-inside:avoid">dužina veća od 8 m</li><li style="break-inside:avoid">širina veća od 2,4 m</li><li style="break-inside:avoid">najveća konstruktivna brzina veća od <span style="white-space:nowrap">80 km/h</span></li><li style="break-inside:avoid">ima zatvoreni tovarni sanduk</li><li style="break-inside:avoid">priključno vozilo dužine najmanje 7,5 m sa zatvorenim tovarnim sandukom</li></ul>
+                    
+                  </div>
+                  <div style="background:#f7f9fc;border:1px solid #e6ebf3;border-radius:13px;padding:18px 20px">
+                    <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Uslovi za polaganje</div>
+                    <ul style="margin:0;padding-left:18px;font-size:14.5px;color:#5a6a85;line-height:1.7;font-size:14px"><li>Upis sa 20 godina, praktični ispit sa navršene 21 godine.</li><li>Posedovanje vozačke dozvole B kategorije (ne sme biti probna).</li></ul>
+                  </div>
+                </div>
+                <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Trajanje obuke</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px">
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Trajanje obuke za C kategoriju</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>7 časova teorijske nastave</li><li>polaganje testa</li><li>15 časova praktične obuke</li><li>polaganje vožnje</li></ul>
+                </div>
+                </div>
+                
+              </div>
+            </div>
+            <div id="ce" class="cat-card" style="border:1px solid #e6ebf3;border-radius:18px;overflow:hidden;background:#fff;scroll-margin-top:96px">
+              <div style="background:#12262d;padding:20px 24px;display:flex;align-items:center;gap:16px">
+                <div style="width:56px;height:56px;flex:none;border-radius:13px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;color:#ff5a4d">CE</div>
+                <div><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;margin:0;color:#fff">CE kategorija</h3><div style="font-size:13.5px;color:#9fb0c4;margin-top:3px">Teretno vozilo sa priključnim vozilom</div></div>
+              </div>
+              <div style="padding:24px">
+                <div class="cat-top" style="display:grid;grid-template-columns:1.5fr 1fr;gap:26px;align-items:start;margin-bottom:26px">
+                  <div>
+                    
+                    <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Vozila u ovoj kategoriji</div><ul style="margin:0;padding-left:18px;font-size:14.5px;color:#5a6a85;line-height:1.7;columns:2;column-gap:26px"><li style="break-inside:avoid">najveća dozvoljena masa prelazi 12.000 kg</li><li style="break-inside:avoid">dužina veća od 8 m</li><li style="break-inside:avoid">širina veća od 2,4 m</li><li style="break-inside:avoid">najveća konstruktivna brzina veća od <span style="white-space:nowrap">80 km/h</span></li><li style="break-inside:avoid">ima zatvoreni tovarni sanduk</li><li style="break-inside:avoid">priključno vozilo dužine najmanje 7,5 m sa zatvorenim tovarnim sandukom</li></ul>
+                    
+                  </div>
+                  <div style="background:#f7f9fc;border:1px solid #e6ebf3;border-radius:13px;padding:18px 20px">
+                    <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Uslovi za polaganje</div>
+                    <ul style="margin:0;padding-left:18px;font-size:14.5px;color:#5a6a85;line-height:1.7;font-size:14px"><li>Posedovanje vozačke dozvole C kategorije</li></ul>
+                  </div>
+                </div>
+                <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d5121f;margin:0 0 11px">Trajanje obuke</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px">
+                <div style="border:1px solid #e6ebf3;border-radius:11px;padding:15px 17px;background:#fff">
+                  <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:#0e1a30;margin-bottom:8px;line-height:1.35">Trajanje obuke za CE kategoriju</div>
+                  <ul style="margin:0;padding-left:17px;font-size:13.5px;color:#5a6a85;line-height:1.65"><li>7 časova teorijske nastave</li><li>polaganje praktičnog dela</li></ul>
+                </div>
+                </div>
+                
+              </div>
+            </div>
           </div>
         </div>
-        <div style="background:#f3f6fb;border-radius:16px;padding:36px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap"><div style="min-width:260px"><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:22px;margin:0 0 8px">Nisi siguran koja kategorija ti treba?</h3><p style="font-size:15px;color:#5a6a85;margin:0">Pozovi nas ili se upiši, savetujemo te oko izbora.</p></div><a href="upis.html" style="background:#d5121f;color:#fff;font-family:'Archivo',sans-serif;font-weight:800;font-size:16px;padding:15px 30px;border-radius:9px;text-decoration:none;white-space:nowrap">Online upis →</a></div>
+        <div style="background:#f3f6fb;border-radius:16px;padding:36px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap"><div style="min-width:260px"><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:22px;margin:0 0 8px">Nisi siguran koja kategorija ti treba?</h3><p style="font-size:15px;color:#5a6a85;margin:0">Pozovi nas ili se upiši, savetujemo te oko izbora.</p></div><a href="tel:+381606037037" style="background:#d5121f;color:#fff;font-family:'Archivo',sans-serif;font-weight:800;font-size:16px;padding:15px 30px;border-radius:9px;text-decoration:none;white-space:nowrap">Pozovi nas →</a></div>
       </section>
   </main>
   <footer style="background:#0d1c22;color:#cbd4e3">

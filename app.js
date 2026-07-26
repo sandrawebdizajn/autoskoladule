@@ -252,6 +252,187 @@
       }
     }
 
+    /* ---------- lightbox za vozila na parkingu ---------- */
+    var bays=[].slice.call(document.querySelectorAll('.bay[data-full]'));
+    if(bays.length){
+      var lb=document.createElement('div');
+      lb.className='lb';
+      lb.setAttribute('role','dialog');
+      lb.setAttribute('aria-modal','true');
+      lb.setAttribute('aria-label','Uvećana slika vozila');
+      lb.innerHTML='<button type="button" class="lb-btn lb-close" aria-label="Zatvori">✕</button>'+
+        '<button type="button" class="lb-btn lb-prev" aria-label="Prethodno vozilo">‹</button>'+
+        '<button type="button" class="lb-btn lb-next" aria-label="Sledeće vozilo">›</button>'+
+        '<img class="lb-img" alt=""><div class="lb-meta"><b></b><span></span></div>';
+      document.body.appendChild(lb);
+      var lbImg=lb.querySelector('.lb-img'), lbT=lb.querySelector('.lb-meta b'), lbS=lb.querySelector('.lb-meta span'), lbIdx=0, lastFocus=null;
+
+      function lbShow(i){
+        lbIdx=(i%bays.length+bays.length)%bays.length;
+        var b=bays[lbIdx];
+        lbImg.src=b.getAttribute('data-full');
+        lbImg.alt=b.getAttribute('data-title')||'';
+        lbT.textContent=b.getAttribute('data-title')||'';
+        lbS.textContent=(b.getAttribute('data-cat')||'')+'  ·  '+(lbIdx+1)+' / '+bays.length;
+      }
+      function lbOpen(i){
+        lastFocus=document.activeElement;
+        lbShow(i);
+        lb.classList.add('open');
+        requestAnimationFrame(function(){ lb.classList.add('shown'); });
+        document.body.style.overflow='hidden';
+        lb.querySelector('.lb-close').focus();
+      }
+      function lbClose(){
+        lb.classList.remove('shown');
+        setTimeout(function(){ lb.classList.remove('open'); }, RM?0:250);
+        document.body.style.overflow='';
+        if(lastFocus && lastFocus.focus) lastFocus.focus();
+      }
+      bays.forEach(function(b,i){ b.addEventListener('click',function(){ lbOpen(i); }); });
+      lb.querySelector('.lb-close').addEventListener('click',lbClose);
+      lb.querySelector('.lb-prev').addEventListener('click',function(e){ e.stopPropagation(); lbShow(lbIdx-1); });
+      lb.querySelector('.lb-next').addEventListener('click',function(e){ e.stopPropagation(); lbShow(lbIdx+1); });
+      lb.addEventListener('click',function(e){ if(e.target===lb || e.target===lbImg) lbClose(); });
+      document.addEventListener('keydown',function(e){
+        if(!lb.classList.contains('open')) return;
+        if(e.key==='Escape') lbClose();
+        else if(e.key==='ArrowLeft') lbShow(lbIdx-1);
+        else if(e.key==='ArrowRight') lbShow(lbIdx+1);
+      });
+    }
+
+    /* ---------- kategorije: prikaz kartice na klik ---------- */
+    var chips=[].slice.call(document.querySelectorAll('.cat-chip'));
+    if(chips.length){
+      var catCards=[].slice.call(document.querySelectorAll('.cat-card'));
+      var hint=document.querySelector('.cat-hint');
+      var groups=catCards.map(function(c){ return c.closest('div').parentElement; });
+
+      function chipState(ch,on){
+        ch.style.background = on ? '#d5121f' : '#fff';
+        ch.style.color = on ? '#fff' : '#12262d';
+        ch.style.borderColor = on ? '#d5121f' : '#dbe3ee';
+      }
+      function groupWrap(card){
+        // section > div(group) > [h2, div(list)] > card
+        var list=card.parentElement;
+        return list && list.parentElement ? list.parentElement : null;
+      }
+      function hideAll(){
+        catCards.forEach(function(c){ c.style.display='none'; });
+        catCards.forEach(function(c){ var g=groupWrap(c); if(g) g.style.display='none'; });
+        chips.forEach(function(ch){ chipState(ch,false); });
+      }
+      function resetHeadings(show){
+        catCards.forEach(function(c){
+          var g=groupWrap(c);
+          if(!g) return;
+          var h=g.querySelector('h2');
+          if(h) h.style.display = show ? '' : 'none';
+        });
+      }
+      function showCat(id, doScroll){
+        var card=document.getElementById(id);
+        if(!card) return;
+        hideAll();
+        resetHeadings(false);
+        if(hint) hint.style.display='none';
+        var g=groupWrap(card);
+        if(g) g.style.display='';
+        card.style.display='';
+        chips.forEach(function(ch){ chipState(ch, ch.getAttribute('data-cat')===id); });
+        if(!RM){
+          card.style.opacity='0';
+          card.style.transform='translateY(12px)';
+          requestAnimationFrame(function(){
+            card.style.transition='opacity .4s ease, transform .4s cubic-bezier(.22,.61,.36,1)';
+            card.style.opacity='1';
+            card.style.transform='none';
+          });
+        }
+        if(doScroll){
+          var y=card.getBoundingClientRect().top+window.scrollY-96;
+          window.scrollTo({top:y, behavior: RM?'auto':'smooth'});
+        }
+      }
+      hideAll();
+      chips.forEach(function(ch){
+        ch.addEventListener('click',function(e){
+          e.preventDefault();
+          var id=ch.getAttribute('data-cat');
+          if(ch.style.background==='rgb(213, 18, 31)'){ // ponovni klik zatvara
+            hideAll();
+            resetHeadings(true);
+            if(hint) hint.style.display='';
+            history.replaceState(null,'',location.pathname);
+            return;
+          }
+          history.replaceState(null,'','#'+id);
+          showCat(id,true);
+        });
+      });
+      var initial=(location.hash||'').replace('#','');
+      if(initial && document.getElementById(initial)){
+        showCat(initial,false);
+        /* dolazak sa druge strane: prika\u017ei i sve opcije gore, ne samo karticu */
+        var chipsRow=chips[0].parentElement;
+        var toTop=function(){
+          var y=chipsRow.getBoundingClientRect().top+window.scrollY-110;
+          window.scrollTo({top:Math.max(y,0), behavior:'auto'});
+        };
+        toTop();
+        requestAnimationFrame(toTop);
+        setTimeout(toTop,60);
+      }
+    }
+
+    /* ---------- promo: podsetnik + popup pri prvom ulasku (samo po\u010detna) ---------- */
+    var isHome=/(^|\/)(index\.html)?$/.test(location.pathname.split('/').pop()||'');
+    if(isHome && document.querySelector('.cat-row')){
+      var tab=document.createElement('a');
+      tab.className='promo-tab';
+      tab.href='upis.html';
+      tab.innerHTML='<span class="promo-tab-ico">\u2605</span><span class="promo-tab-txt">Akcija u toku<small>Nove grupe, prijavi se</small></span>';
+      document.body.appendChild(tab);
+
+      var SEEN='dz-promo-seen-v1', seen=null;
+      try{ seen=localStorage.getItem(SEEN); }catch(e){}
+      if(!seen){
+        var ov=document.createElement('div');
+        ov.className='promo-ov';
+        ov.setAttribute('role','dialog');
+        ov.setAttribute('aria-modal','true');
+        ov.setAttribute('aria-label','Akcija za nove kandidate');
+        ov.innerHTML='<div class="promo-box">'+
+          '<button type="button" class="promo-x" aria-label="Zatvori">\u2715</button>'+
+          '<div class="promo-eyebrow">Akcija u toku</div>'+
+          '<h3>Otvorene nove grupe</h3>'+
+          '<p>Popust za nove upisane kandidate. Zauzmi svoje mesto na vreme, popuni podatke i mi te zovemo.</p>'+
+          '<div class="promo-act"><a class="promo-go" href="upis.html">Prijavi se</a>'+
+          '<button type="button" class="promo-later">Kasnije</button></div></div>';
+        document.body.appendChild(ov);
+
+        function promoClose(){
+          ov.classList.remove('shown');
+          setTimeout(function(){ ov.classList.remove('open'); }, RM?0:280);
+          document.body.style.overflow='';
+          try{ localStorage.setItem(SEEN,'1'); }catch(e){}
+        }
+        setTimeout(function(){
+          ov.classList.add('open');
+          requestAnimationFrame(function(){ ov.classList.add('shown'); });
+          document.body.style.overflow='hidden';
+          ov.querySelector('.promo-x').focus();
+        }, RM?300:1100);
+        ov.querySelector('.promo-x').addEventListener('click',promoClose);
+        ov.querySelector('.promo-later').addEventListener('click',promoClose);
+        ov.querySelector('.promo-go').addEventListener('click',function(){ try{ localStorage.setItem(SEEN,'1'); }catch(e){} });
+        ov.addEventListener('click',function(e){ if(e.target===ov) promoClose(); });
+        document.addEventListener('keydown',function(e){ if(e.key==='Escape' && ov.classList.contains('open')) promoClose(); });
+      }
+    }
+
     /* ---------- sticky mobilni CTA ---------- */
     var cta=document.createElement('a');
     cta.className='sticky-cta';
